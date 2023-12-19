@@ -110,6 +110,6 @@ class ResistCPRVewModel: ViewModel() {
 }
 ```
 
-### 3️⃣ AWS 서버 구축 / PHP 연동 / MySQL 연동
-> https://www.notion.so/chanho0908/Android-Studio-MySQL-e44a9d7bd2fe480bb485919d5f6ba483
-> AWS 프리티어 만료로 다른 방법을 찾는중
+### 3️⃣ BackEnd Server  
+https://github.com/chanho0908/android_Docker_server
+
