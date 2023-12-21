@@ -1,0 +1,1 @@
+class CrnResponseModel : ArrayList<CrnResponseModelItem>()

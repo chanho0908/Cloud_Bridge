@@ -47,11 +47,44 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="20dp"
             android:layout_marginEnd="15dp"
             android:gravity="center_vertical"
             android:orientation="vertical"
-            android:padding="10dp">
+            android:paddingStart="10dp"
+            >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="20dp"
+                android:gravity="bottom"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/rubik_bold"
+                        android:text="대표자명"
+                        android:textColor="@color/blue_grey"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:id="@+id/store_repre_name_textView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/rubik_bold"
+                        android:textColor="@color/shrine_pink_900"
+                        android:textSize="20sp" />
+                </LinearLayout>
+
+
+            </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -65,20 +98,20 @@
                     android:orientation="vertical">
 
                     <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/rubik_bold"
-                        android:text="사업자등록번호"
-                        android:textSize="13sp"
-                        android:textColor="@color/blue_grey" />
-
-                    <TextView
-                        android:id="@+id/store_cpr_textView"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/rubik_bold"
+                        android:text="사업자등록번호"
+                        android:textColor="@color/blue_grey"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:id="@+id/store_cpr_textView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/rubik_bold"
                         android:textColor="@color/shrine_pink_900"
-                        android:textSize="17sp" />
+                        android:textSize="20sp" />
                 </LinearLayout>
 
             </LinearLayout>
@@ -96,12 +129,12 @@
                     android:orientation="vertical">
 
                     <TextView
-                        android:layout_width="match_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/rubik_bold"
                         android:text="매장명"
-                        android:textSize="13sp"
-                        android:textColor="@color/blue_grey" />
+                        android:textColor="@color/blue_grey"
+                        android:textSize="15sp" />
 
                     <TextView
                         android:id="@+id/store_name_textView"
@@ -109,7 +142,7 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/rubik_bold"
                         android:textColor="@color/shrine_pink_900"
-                        android:textSize="17sp" />
+                        android:textSize="20sp" />
                 </LinearLayout>
             </LinearLayout>
 
@@ -126,12 +159,12 @@
                     android:orientation="vertical">
 
                     <TextView
-                        android:layout_width="match_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/rubik_bold"
                         android:text="매장 주소"
-                        android:textSize="13sp"
-                        android:textColor="@color/blue_grey" />
+                        android:textColor="@color/blue_grey"
+                        android:textSize="15sp" />
 
                     <TextView
                         android:id="@+id/store_addr_textView"
@@ -139,7 +172,7 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/rubik_bold"
                         android:textColor="@color/shrine_pink_900"
-                        android:textSize="17sp" />
+                        android:textSize="20sp" />
                 </LinearLayout>
             </LinearLayout>
 
@@ -156,12 +189,12 @@
                     android:orientation="vertical">
 
                     <TextView
-                        android:layout_width="match_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/rubik_bold"
                         android:text="전화번호"
-                        android:textSize="13sp"
-                        android:textColor="@color/blue_grey" />
+                        android:textColor="@color/blue_grey"
+                        android:textSize="15sp" />
 
                     <TextView
                         android:id="@+id/store_phone_textView"
@@ -169,7 +202,7 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/rubik_bold"
                         android:textColor="@color/shrine_pink_900"
-                        android:textSize="17sp" />
+                        android:textSize="20sp" />
                 </LinearLayout>
 
 
@@ -188,28 +221,33 @@
                     android:orientation="vertical">
 
                     <TextView
-                        android:layout_width="match_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/rubik_bold"
                         android:text="대표자명"
-                        android:textSize="13sp"
-                        android:textColor="@color/blue_grey" />
+                        android:textColor="@color/blue_grey"
+                        android:textSize="15sp" />
 
                     <TextView
-                        android:id="@+id/store_repre_name_textView"
+                        android:id="@+id/store_kind_textView"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/rubik_bold"
                         android:textColor="@color/shrine_pink_900"
-                        android:textSize="17sp" />
+                        android:textSize="20sp" />
                 </LinearLayout>
+
+
             </LinearLayout>
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/btn_container"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
             android:layout_marginStart="15dp"
+            android:layout_marginTop="20dp"
             android:layout_marginEnd="15dp"
             android:gravity="center"
             android:orientation="vertical"

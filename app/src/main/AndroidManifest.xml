@@ -26,22 +26,22 @@
             android:name=".view.registeStore.UpdateStoreActivity"
             android:exported="true" />
         <activity
-            android:name=".view.myPage.NoRegistsStoreActivity"
+            android:name=".view.intro.myPage.NoRegistsStoreActivity"
             android:exported="true" />
         <activity
-            android:name=".view.myPage.MyStoreActivity"
+            android:name=".view.intro.myPage.MyStoreActivity"
             android:exported="true" />
         <activity
-            android:name=".view.myPage.FarewellActivity"
+            android:name=".view.intro.myPage.FarewellActivity"
             android:exported="true" />
         <activity
-            android:name=".view.myPage.DeleteUserActivity"
+            android:name=".view.intro.myPage.DeleteUserActivity"
             android:exported="true" />
         <activity
-            android:name=".view.myPage.UpdateUserProfileActivity"
+            android:name=".view.intro.myPage.UpdateUserProfileActivity"
             android:exported="true" />
         <activity
-            android:name=".view.myPage.MyInfoActivity"
+            android:name=".view.intro.myPage.MyInfoActivity"
             android:exported="true" />
         <activity
             android:name=".view.intro.SignOrLoginActivity"
