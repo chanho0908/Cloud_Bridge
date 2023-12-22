@@ -1,276 +1,291 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/shrine_pink_100"
-    >
-
-    <ImageButton
-        android:id="@+id/btnBack"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:src="@drawable/baseline_arrow_back_ios_24"
-        android:background="@color/shrine_pink_100"
-        android:layout_marginTop="15dp"
-        android:layout_marginStart="5dp"
-        />
-    <TextView
-        android:id="@+id/title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="23dp"
-        android:fontFamily="@font/rubik_bold"
-        android:text="나의 매장"
-        android:textColor="@color/shrine_pink_900"
-        android:textSize="23dp"
-        android:textStyle="bold" />
-
-    <LinearLayout
+    android:layout_height="match_parent">
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/title"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/left_cut_layout"
-        android:elevation="15dp"
-        android:orientation="vertical">
+        android:background="@color/shrine_pink_100"
+        >
+
+        <ImageButton
+            android:id="@+id/btnBack"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/baseline_arrow_back_ios_24"
+            android:background="@color/shrine_pink_100"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="15dp"
+            android:layout_marginStart="5dp"
+            />
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="23dp"
+            android:fontFamily="@font/rubik_bold"
+            android:text="나의 매장"
+            android:textColor="@color/shrine_pink_900"
+            android:textSize="23dp"
+            android:textStyle="bold" />
 
         <LinearLayout
-            android:id="@+id/inputContainer"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
+            android:layout_height="match_parent"
+            android:layout_below="@id/title"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
             android:layout_marginTop="20dp"
-            android:layout_marginEnd="15dp"
-            android:gravity="center_vertical"
-            android:orientation="vertical"
-            android:paddingStart="10dp"
-            >
+            android:background="@drawable/left_cut_layout"
+            android:elevation="15dp"
+            android:orientation="vertical">
 
             <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="20dp"
-                android:gravity="bottom"
-                android:orientation="horizontal">
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/rubik_bold"
-                        android:text="대표자명"
-                        android:textColor="@color/blue_grey"
-                        android:textSize="15sp" />
-
-                    <TextView
-                        android:id="@+id/store_repre_name_textView"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/rubik_bold"
-                        android:textColor="@color/shrine_pink_900"
-                        android:textSize="20sp" />
-                </LinearLayout>
-
-
-            </LinearLayout>
-
-            <LinearLayout
+                android:id="@+id/inputContainer"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="bottom"
-                android:orientation="horizontal">
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="15dp"
+                android:gravity="center_vertical"
+                android:orientation="vertical"
+                android:paddingStart="10dp"
+                >
 
                 <LinearLayout
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:gravity="center"
                     android:orientation="vertical">
 
-                    <TextView
+                    <ImageView
+                        android:id="@+id/main_image"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/rubik_bold"
-                        android:text="사업자등록번호"
-                        android:textColor="@color/blue_grey"
-                        android:textSize="15sp" />
+                        android:src="@drawable/ic_sad" />
+                </LinearLayout>
 
-                    <TextView
-                        android:id="@+id/store_cpr_textView"
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="5dp"
+                    android:gravity="bottom"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/rubik_bold"
-                        android:textColor="@color/shrine_pink_900"
-                        android:textSize="20sp" />
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/rubik_bold"
+                            android:text="대표자명"
+                            android:textColor="@color/blue_grey"
+                            android:textSize="15sp" />
+
+                        <TextView
+                            android:id="@+id/store_repre_name_textView"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/rubik_bold"
+                            android:textColor="@color/shrine_pink_900"
+                            android:textSize="20sp" />
+                    </LinearLayout>
+
+
                 </LinearLayout>
 
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/rubik_bold"
+                            android:text="사업자등록번호"
+                            android:textColor="@color/blue_grey"
+                            android:textSize="15sp" />
+
+                        <TextView
+                            android:id="@+id/store_cpr_textView"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/rubik_bold"
+                            android:textColor="@color/shrine_pink_900"
+                            android:textSize="20sp" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/rubik_bold"
+                            android:text="매장명"
+                            android:textColor="@color/blue_grey"
+                            android:textSize="15sp" />
+
+                        <TextView
+                            android:id="@+id/store_name_textView"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/rubik_bold"
+                            android:textColor="@color/shrine_pink_900"
+                            android:textSize="20sp" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/rubik_bold"
+                            android:text="매장 주소"
+                            android:textColor="@color/blue_grey"
+                            android:textSize="15sp" />
+
+                        <TextView
+                            android:id="@+id/store_addr_textView"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/rubik_bold"
+                            android:textColor="@color/shrine_pink_900"
+                            android:textSize="20sp" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/rubik_bold"
+                            android:text="전화번호"
+                            android:textColor="@color/blue_grey"
+                            android:textSize="15sp" />
+
+                        <TextView
+                            android:id="@+id/store_phone_textView"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/rubik_bold"
+                            android:textColor="@color/shrine_pink_900"
+                            android:textSize="20sp" />
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="20dp"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/rubik_bold"
+                            android:text="대표자명"
+                            android:textColor="@color/blue_grey"
+                            android:textSize="15sp" />
+
+                        <TextView
+                            android:id="@+id/store_kind_textView"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/rubik_bold"
+                            android:textColor="@color/shrine_pink_900"
+                            android:textSize="20sp" />
+                    </LinearLayout>
+
+
+                </LinearLayout>
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/btn_container"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:layout_marginStart="15dp"
                 android:layout_marginTop="20dp"
-                android:gravity="bottom"
-                android:orientation="horizontal">
+                android:layout_marginEnd="15dp"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="10dp">
 
-                <LinearLayout
-                    android:layout_width="wrap_content"
+                <Button
+                    android:id="@+id/btnUpdate"
+                    style="@style/TextAppearance.App.Button"
+                    android:layout_width="200dp"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical">
+                    android:text="매장 정보 수정"
+                    android:textColor="@color/shrine_pink_50"
+                    android:textSize="18sp" />
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/rubik_bold"
-                        android:text="매장명"
-                        android:textColor="@color/blue_grey"
-                        android:textSize="15sp" />
-
-                    <TextView
-                        android:id="@+id/store_name_textView"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/rubik_bold"
-                        android:textColor="@color/shrine_pink_900"
-                        android:textSize="20sp" />
-                </LinearLayout>
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:gravity="bottom"
-                android:orientation="horizontal">
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
+                <Button
+                    android:id="@+id/btnDelete"
+                    style="@style/TextAppearance.App.Button"
+                    android:layout_width="200dp"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/rubik_bold"
-                        android:text="매장 주소"
-                        android:textColor="@color/blue_grey"
-                        android:textSize="15sp" />
-
-                    <TextView
-                        android:id="@+id/store_addr_textView"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/rubik_bold"
-                        android:textColor="@color/shrine_pink_900"
-                        android:textSize="20sp" />
-                </LinearLayout>
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:gravity="bottom"
-                android:orientation="horizontal">
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/rubik_bold"
-                        android:text="전화번호"
-                        android:textColor="@color/blue_grey"
-                        android:textSize="15sp" />
-
-                    <TextView
-                        android:id="@+id/store_phone_textView"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/rubik_bold"
-                        android:textColor="@color/shrine_pink_900"
-                        android:textSize="20sp" />
-                </LinearLayout>
-
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="20dp"
-                android:gravity="bottom"
-                android:orientation="horizontal">
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/rubik_bold"
-                        android:text="대표자명"
-                        android:textColor="@color/blue_grey"
-                        android:textSize="15sp" />
-
-                    <TextView
-                        android:id="@+id/store_kind_textView"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/rubik_bold"
-                        android:textColor="@color/shrine_pink_900"
-                        android:textSize="20sp" />
-                </LinearLayout>
-
-
+                    android:layout_marginTop="10dp"
+                    android:text="매장 삭제"
+                    android:textColor="@color/shrine_pink_50"
+                    android:textSize="18sp" />
             </LinearLayout>
         </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/btn_container"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom"
-            android:layout_marginStart="15dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="15dp"
-            android:gravity="center"
-            android:orientation="vertical"
-            android:padding="10dp">
-
-            <Button
-                android:id="@+id/btnUpdate"
-                style="@style/TextAppearance.App.Button"
-                android:layout_width="200dp"
-                android:layout_height="wrap_content"
-                android:text="매장 정보 수정"
-                android:textColor="@color/shrine_pink_50"
-                android:textSize="18sp" />
-
-            <Button
-                android:id="@+id/btnDelete"
-                style="@style/TextAppearance.App.Button"
-                android:layout_width="200dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="매장 삭제"
-                android:textColor="@color/shrine_pink_50"
-                android:textSize="18sp" />
-        </LinearLayout>
-    </LinearLayout>
-</RelativeLayout>
+    </RelativeLayout>
+</ScrollView>

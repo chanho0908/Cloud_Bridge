@@ -27,7 +27,7 @@
         <argument
             android:name="bno"
             app:argType="string"
-            android:defaultValue="defalutValue" />
+            android:defaultValue="" />
         <action
             android:id="@+id/action_updateFragment2_to_updateFragment1"
             app:destination="@id/updateFragment1"
