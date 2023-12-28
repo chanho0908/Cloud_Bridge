@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/search_nav"
+    app:startDestination="@id/storeListFragment">
+
+
+    <fragment
+        android:id="@+id/searchFragment"
+        android:name="com.myproject.cloudbridge.view.main.SearchFragment"
+        android:label="fragment_search"
+        tools:layout="@layout/fragment_search" >
+        <action
+            android:id="@+id/action_searchFragment_to_storeListFragment"
+            app:destination="@id/storeListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/storeListFragment"
+        android:name="com.myproject.cloudbridge.view.main.StoreListFragment"
+        android:label="fragment_store_list"
+        tools:layout="@layout/fragment_store_list" >
+        <action
+            android:id="@+id/action_storeListFragment_to_searchFragment"
+            app:destination="@id/searchFragment" />
+    </fragment>
+</navigation>

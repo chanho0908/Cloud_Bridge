@@ -11,4 +11,6 @@
     <string name="not_registed_cpr">국세청에 등록되지 않은 사업자등록번호입니다.</string>
     <string name="used_registed_cpr">이미 사용 중인 사업자등록번호입니다.</string>
     <string name="is_differ_cpr">등록된 정보와 일치하지 않습니다.</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
