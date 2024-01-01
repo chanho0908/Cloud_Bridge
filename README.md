@@ -62,49 +62,41 @@ data class CompanyRegistrationNumberState(
 
 ```
 ```
-data class NTS (
-    val request_cnt: Int,
-    val match_cnt: Int,
-    val status_code: String,
-    val data: List<CompanyRegistrationNumberState>
-    )
+data class CprRequestModel (
+  val request_cnt: Int,
+  val match_cnt: Int,
+  val status_code: String,
+  val data: List<CompanyRegistrationNumberState>
+)
 ```
 #### 🎉 Retrofit interface
 
 ```
-interface NTSApi {
-    @POST("nts-businessman/v1/status")
-    suspend fun getCPRState(@Body requestBody: Map<String, List<String>>): NTS
+interface CRNApi {
+    @POST("status")
+    suspend fun getCRNState(
+        @Body requestBody: CrnRequestModel, // 조회할 사업자 등록번호
+        @Query("serviceKey") serviceKey:String // API 사용자 인증키
+    ): CprRequestModel
 }
 ```
 #### 🎉 API 호출 함수
 ```
-class ResistCPRVewModel: ViewModel() {
 
-    private val _state = MutableLiveData<NTS>()
-    val state: LiveData<NTS>
+class RegistCRNVewModel: ViewModel() {
+
+    private val _state = MutableLiveData<CprRequestModel>()
+    val state: LiveData<CprRequestModel>
         get() = _state
 
-    private val retrofit = Retrofit.Builder()
-                            .baseUrl("https://api.odcloud.kr/api/")
-                            .addConverterFactory(GsonConverterFactory.create())
-                            .client(OkHttpClient.Builder()
-                                .connectTimeout(30, TimeUnit.SECONDS)
-                                .writeTimeout(30, TimeUnit.SECONDS)
-                                .readTimeout(30, TimeUnit.SECONDS)
-                                .build())
-        .build()
+    private val CRNApi = CRNRetrofitInstance.getInstance()
 
-    private val ntsApi: NTSApi = retrofit.create(NTSApi::class.java)
-
-    fun getCPRState(bno: String) = viewModelScope.launch((Dispatchers.IO)) {
+    fun getCPRState(bno: String) = viewModelScope.launch(Dispatchers.IO) {
         try {
-            val requestBody = mapOf("b_no" to listOf(bno))
-            val result = ntsApi.getCPRState(requestBody)
-            print("result: $result")
-            _state.postValue(result);
+            val result = CRNApi.getCRNState(CrnRequestModel(arrayOf(bno)), SECRETE_KEY)
+            _state.postValue(result)
         }catch (e : Exception){
-            Log.d("retrofitError", e.toString())
+            Log.d("CPRFragment", "Cause getCPRState: $e")
         }
     }
 }
