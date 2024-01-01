@@ -105,7 +105,87 @@ class RegistCRNVewModel: ViewModel() {
 ### 3️⃣ BackEnd Server  
 https://github.com/chanho0908/android_Docker_server
 
-### 4️⃣ 동작 화면
+### 4️⃣ REST API 
+#### 🔥 REST API 서버와 통신하는 과정을 상세히 알아보겠습니다.
+REST API에 관한 내용에 대해 포스팅 쓴 글 입니다 😁   
+[https://chanho-study.tistory.com/62]    
+[https://chanho-study.tistory.com/55]
+### ✔ Retrofit Instance 
+가장 먼저 네트워크 요청을 보낼 정보를 담은 **Retrofit Instance**를 생성합니다.
+```
+object MySQLIStoreInstance {
+    val BASE_URL = "http://172.30.1.7/"
+
+    private val gson : Gson = GsonBuilder()
+        .setLenient()
+        .create()
+
+    private val client: Retrofit = Retrofit
+        .Builder()
+        .baseUrl(BASE_URL)
+        .client(MyOkHttpClient.client)
+        .addConverterFactory(GsonConverterFactory.create(gson))
+        .build()
+
+    fun getInstance(): StoreInfoApi = client.create(StoreInfoApi::class.java)
+}
+```
+
+#### ✔ [GET] 
+1. 모든 매장 정보를 가져오는 메소드 입니다. 단순히 요청해야하는 URL로 GET 요청을 보내고 Response Type을 지정해줍니다.
+
+```
+@GET("/db/storeinfo")
+suspend fun getAllStoreInfo(): List<AllStoreInfoResponseModel>
+
+// Response Type
+data class AllStoreInfoResponseModel(
+    val CRN: String,
+    val address: String,
+    val ceoName: String,
+    val contact: String,
+    val image: String,
+    val kind: String,
+    val latitude: String,
+    val longitude: String,
+    val storename: String
+)
+
+```
+
+2. 특정 사업자 등록번호에 해당 하는 매장을 가져오는 메소드입니다.
+ + 여기서 중요한건  **@Path()** 어노테이션입니다. 이 어노테이션은 URL의 경로를 동적으로 지정해야할 때 사용합니다.
+ + @Path 어노테이션의해 전달된 동적 데이터는 중괄호 { }로 감싸야합니다.
+ + 최종 요청 URL 예시 : http://172.30.1.7/db/storeinfo/1208147521
+```
+@GET("/db/storeinfo/{crn}")
+suspend fun getMyStoreInfo(@Path("crn") crn: String): MyStoreInfoResponseModel
+```
+#### ✔ [POST]
+Retrofit Multipart 요청에 관한 포스팅 입니다. [https://chanho-study.tistory.com/42] 😁   
+
+매장 정보를 서버측에 전송하는 메소드 입니다. 
+ + Multipart : 이미지, 오디오, 비디오 등과 같은 여러 종류의 데이터를 서버에 업로드하거나 전송할 때 사용
+ + 업로드할 데이터를 @Part 어노테이션을 사용해 파라미터로 지정
+ + @Part : Multipart 요청의 한 부분을 나타냅니다.
+ + @Part로 나눠진 파라미터를 하나의 객체로 만들어 전송
+```
+@Multipart
+@POST("/db/upload") // 서버 엔드포인트 URL, HTTP POST 요청
+suspend fun registStore(
+  @Part storeimage: MultipartBody.Part, // 이미지 데이터를 나타내는 파라미터
+  @Part("storename") storename: RequestBody,
+  @Part("ceoName") ceoName: RequestBody,
+  @Part("CRN") CRN: RequestBody,
+  @Part("contact") contact: RequestBody,
+  @Part("address") address: RequestBody,
+  @Part("latitude") latitude: RequestBody,
+  @Part("longitude") longitude: RequestBody,
+  @Part("kind") kind: RequestBody
+): ResponseBody
+```
+
+### 5️⃣ 동작 화면
 |사업자 등록번호 조회|매장 등록|
 |---|---|
 |<img src="https://github.com/chanho0908/Cloud_Bridge/assets/84930748/684b1ae4-7536-4244-878d-832b6ba7665c" width="400"/>|<img src="https://github.com/chanho0908/Cloud_Bridge/assets/84930748/9ad3477b-63ed-4e46-b92d-80dcb8b59e6b" width="400"/>|
