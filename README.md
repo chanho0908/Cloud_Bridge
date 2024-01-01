@@ -107,7 +107,7 @@ https://github.com/chanho0908/android_Docker_server
 
 ### 4️⃣ REST API 
 #### 🔥 REST API 서버와 통신하는 과정을 상세히 알아보겠습니다.
-REST API에 관한 내용에 대해 포스팅 쓴 글 입니다 😁   
+REST API에 관한 내용에 대해 포스팅한 글 입니다 😁   
 [https://chanho-study.tistory.com/62]    
 [https://chanho-study.tistory.com/55]
 ### ✔ Retrofit Instance 
@@ -187,7 +187,7 @@ suspend fun registStore(
 
 #### ✔ [PUT]
 매장 정보를 수정하기 위한 요청입니다.
- > 사용자가 이미지를 변경하지 않았을 경우 기존 이미지를 그대로 사용해야하는데 이 부분에 대한 수정이 필요합니다.
+ > 사용자가 이미지를 변경하지 않으면 기존 이미지를 그대로 사용해야하는데 이 부분에 대한 수정이 필요합니다.
 ```
 @Multipart
 @PUT("/db/modify-storeinfo")
