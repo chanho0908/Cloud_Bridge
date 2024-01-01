@@ -185,6 +185,31 @@ suspend fun registStore(
 ): ResponseBody
 ```
 
+#### ✔ [PUT]
+매장 정보를 수정하기 위한 요청입니다.
+ > 사용자가 이미지를 변경하지 않았을 경우 기존 이미지를 그대로 사용해야하는데 이 부분에 대한 수정이 필요합니다.
+```
+@Multipart
+@PUT("/db/modify-storeinfo")
+suspend fun updateStoreInfo(
+    @Part storeimage: MultipartBody.Part, // 이미지 데이터를 나타내는 파라미터
+    @Part("storename") storename: RequestBody,
+    @Part("ceoName") ceoName: RequestBody,
+    @Part("CRN") CRN: RequestBody,
+    @Part("contact") contact: RequestBody,
+    @Part("address") address: RequestBody,
+    @Part("latitude") latitude: RequestBody,
+    @Part("longitude") longitude: RequestBody,
+    @Part("kind") kind: RequestBody
+): ResponseBody
+```
+#### ✔ [DELETE]
+매장 정보를 삭제하기 위한 요청입니다. 
+```
+@DELETE("/db/delete-storeinfo/{crn}")
+suspend fun deleteMyStoreInfo(@Path("crn") crn: String): Response<ResponseBody>
+```
+
 ### 5️⃣ 동작 화면
 |사업자 등록번호 조회|매장 등록|
 |---|---|
