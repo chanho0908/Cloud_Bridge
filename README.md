@@ -116,7 +116,7 @@ https://github.com/chanho0908/android_Docker_server
 ### 4️⃣ 동작 화면
 |사업자 등록번호 조회|매장 등록|
 |---|---|
-|<img src="https://github.com/chanho0908/Cloud_Bridge/assets/84930748/684b1ae4-7536-4244-878d-832b6ba7665c" width="400"/>|<img src="https://github.com/chanho0908/Cloud_Bridge/assets/84930748/52e7f0b5-e218-43ba-851f-67fddbd0100e" width="400"/>|
+|<img src="https://github.com/chanho0908/Cloud_Bridge/assets/84930748/684b1ae4-7536-4244-878d-832b6ba7665c" width="400"/>|<img src="https://github.com/chanho0908/Cloud_Bridge/assets/84930748/9ad3477b-63ed-4e46-b92d-80dcb8b59e6b" width="400"/>|
 
 
 
