@@ -243,24 +243,6 @@ suspend fun registStore(
   @Part("kind") kind: RequestBody
 ): ResponseBody
 ```
-#### ✔ [PUT]
-매장 정보를 수정하기 위한 요청입니다.
- > 사용자가 이미지를 변경하지 않으면 기존 이미지를 그대로 사용해야하는데 이 부분에 대한 수정이 필요합니다.
-```
-@Multipart
-@PUT("/db/modify-storeinfo")
-suspend fun updateStoreInfo(
-    @Part storeimage: MultipartBody.Part, // 이미지 데이터를 나타내는 파라미터
-    @Part("storename") storename: RequestBody,
-    @Part("ceoName") ceoName: RequestBody,
-    @Part("CRN") CRN: RequestBody,
-    @Part("contact") contact: RequestBody,
-    @Part("address") address: RequestBody,
-    @Part("latitude") latitude: RequestBody,
-    @Part("longitude") longitude: RequestBody,
-    @Part("kind") kind: RequestBody
-): ResponseBody
-```
 ### 📕 latitude과 latitude을 구하는 과정을 알아보겠습니다. 
     + 위도와 경도 값으로 추후 KaKao Map API를 사용해 매장 위치를 제공하는데 사용됩니다.
 ```
@@ -301,6 +283,26 @@ fun TranslateGeo(address: String): Location = try {
  + Activity에서 버튼을 클릭하면 사용자가 입력한 주소값을 기준으로 위도와 경도를 계산합니다.
  + lifecycleScope : 현재 Activity의 생명주기를 따르는 Coroutine을 생성합니다.
  + withContext(Dispatchers.IO) : Background 작업을 위한 Dispatchers를 사용 했습니다.
+
+
+#### ✔ [PUT]
+매장 정보를 수정하기 위한 요청입니다.
+ > 사용자가 이미지를 변경하지 않으면 기존 이미지를 그대로 사용해야하는데 이 부분에 대한 수정이 필요합니다.
+```
+@Multipart
+@PUT("/db/modify-storeinfo")
+suspend fun updateStoreInfo(
+    @Part storeimage: MultipartBody.Part, // 이미지 데이터를 나타내는 파라미터
+    @Part("storename") storename: RequestBody,
+    @Part("ceoName") ceoName: RequestBody,
+    @Part("CRN") CRN: RequestBody,
+    @Part("contact") contact: RequestBody,
+    @Part("address") address: RequestBody,
+    @Part("latitude") latitude: RequestBody,
+    @Part("longitude") longitude: RequestBody,
+    @Part("kind") kind: RequestBody
+): ResponseBody
+```
 
 #### ✔ [DELETE]
 매장 정보를 삭제하기 위한 요청입니다. 
