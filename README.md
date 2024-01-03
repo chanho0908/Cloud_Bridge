@@ -192,7 +192,32 @@ class MyPageViewModel: ViewModel() {
  * ViewModel은 onCreate시에 생성되며 액티비티나 프래그먼트가 onDestroy되면 onCleared() 됩니다
  * DisPatchers.IO를 사용해 백그라운드에서 안정적으로 비동기적으로 작업합니다.  
 
+```
+class MyStoreActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityMyStoreBinding
+    private val viewModel: MyPageViewModel by viewModels()
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        binding = ActivityMyStoreBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        viewModel.setMyStoreInfo()
+        viewModel.myStore.observe(this){ data ->
+            val bitmap =  StringToBitmaps(data.image)
+            binding.mainImage.setImageBitmap(bitmap)
+
+            binding.storeNameTextView.text = data. result.storename
+            binding.storeCprTextView.text = data.result.CRN
+            binding.storePhoneTextView.text = data.result.contact
+            binding.storeRepreNameTextView.text = data.result.ceoName
+            binding.storeKindTextView.text = data.result.kind
+            binding.storeAddrTextView.text = data.result.address
+        }
+    }
+}
+```
+#### 📕 observe 메소드는 라이브 데이터를 관찰하며 Live Data의 값이 변경되면 UI를 갱신합니다.
 
 #### ✔ [POST]
 > Retrofit Multipart 요청에 관한 포스팅 입니다. [https://chanho-study.tistory.com/42] 😁   
