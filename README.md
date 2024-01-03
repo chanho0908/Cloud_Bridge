@@ -163,6 +163,7 @@ suspend fun getMyStoreInfo(@Path("crn") crn: String): MyStoreInfoResponseModel
 ```
 #### ✔ [POST]
 Retrofit Multipart 요청에 관한 포스팅 입니다. [https://chanho-study.tistory.com/42] 😁   
+안드로이드와 서버의 데이터 전송시 이미지 처리에 관한 포스팅 입니다. [https://chanho-study.tistory.com/67] 😁
 
 매장 정보를 서버측에 전송하는 메소드 입니다. 
  + Multipart : 이미지, 오디오, 비디오 등과 같은 여러 종류의 데이터를 서버에 업로드하거나 전송할 때 사용
@@ -184,7 +185,6 @@ suspend fun registStore(
   @Part("kind") kind: RequestBody
 ): ResponseBody
 ```
-
 #### ✔ [PUT]
 매장 정보를 수정하기 위한 요청입니다.
  > 사용자가 이미지를 변경하지 않으면 기존 이미지를 그대로 사용해야하는데 이 부분에 대한 수정이 필요합니다.
