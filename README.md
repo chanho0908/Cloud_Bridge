@@ -131,8 +131,8 @@ object MySQLIStoreInstance {
 }
 ```
 
-#### ✔ [GET] 
-1. 모든 매장 정보를 가져오는 메소드 입니다. 단순히 요청해야하는 URL로 GET 요청을 보내고 Response Type을 지정해줍니다.
+### ✔ [GET] 
+#### 모든 매장 정보를 가져오는 메소드 입니다. 단순히 요청해야하는 URL로 GET 요청을 보내고 Response Type을 지정해줍니다.
 
 ```
 @GET("/db/storeinfo")
@@ -153,7 +153,7 @@ data class AllStoreInfoResponseModel(
 
 ```
 
-2. 특정 사업자 등록번호에 해당 하는 매장을 가져오는 메소드입니다.
+#### 🔨 특정 사업자 등록번호에 해당 하는 매장을 가져오는 메소드입니다.
  + 여기서 중요한건  **@Path()** 어노테이션입니다. 이 어노테이션은 URL의 경로를 동적으로 지정해야할 때 사용합니다.
  + @Path 어노테이션의해 전달된 동적 데이터는 중괄호 { }로 감싸야합니다.
  + 최종 요청 URL 예시 : http://172.30.1.7/db/storeinfo/1208147521
@@ -161,6 +161,39 @@ data class AllStoreInfoResponseModel(
 @GET("/db/storeinfo/{crn}")
 suspend fun getMyStoreInfo(@Path("crn") crn: String): MyStoreInfoResponseModel
 ```
+
+#### 🔨 서버측에서 가져온 데이터를 ViewModel을 통해 어떻게 UI에 그려주는지 알아보겠습니다.
+```
+class MyPageViewModel: ViewModel() {
+    private val storeInfoApi = MySQLIStoreInstance.getInstance()
+    private val _myStore = MutableLiveData<MyStoreInfoResponseModel>()
+    val myStore: LiveData<MyStoreInfoResponseModel>
+        get() = _myStore
+
+    fun setMyStoreInfo() = viewModelScope.launch(Dispatchers.IO) {
+        try {
+            MyDataStore().getCrn().collect{ crn->
+                val response = storeInfoApi.getMyStoreInfo(crn)
+                _myStore.postValue(response)
+            }
+        }catch (e: Exception){
+            Log.d("MyPageViewModel","MyPageViewModel: $e")
+        }
+    }
+  }
+```
+#### 📕 첫번째로 중요한 부분은 Live 데이터 부분입니다. 
+ * _myStore는 MutableLiveData Type으로 변경이 가능하지만 외부에서 관측이 불가능합니다.
+ * myStore는 LiveData Type으로 변경이 불가능 하지만 observer를 사용해 관측이 가능하고 getter()를 통해 _myStore의 값을 읽어오고 있습니다.
+🔥 이러한 패턴은 **MVVM 아키텍쳐**에서 자주 사용하는 패턴입니다. 이런 방식을 사용면 외부에서 값을 변경할 수 없게 만들어 무결성을 유지할 수 있습니다.
+
+#### 📕 두번째로 중요한 부분은 Coroutine 사용입니다 .
+ * viewModelScope는 ViewModel LifeCycle을 따르는 코루틴입니다.
+ * ViewModel은 onCreate시에 생성되며 액티비티나 프래그먼트가 onDestroy되면 onCleared() 됩니다
+ * DisPatchers.IO를 사용해 백그라운드에서 안정적으로 비동기적으로 작업합니다.  
+
+
+
 #### ✔ [POST]
 > Retrofit Multipart 요청에 관한 포스팅 입니다. [https://chanho-study.tistory.com/42] 😁   
 > 안드로이드와 서버의 데이터 전송시 이미지 처리에 관한 포스팅 입니다. [https://chanho-study.tistory.com/67] 😁
