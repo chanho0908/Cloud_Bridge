@@ -261,6 +261,47 @@ suspend fun updateStoreInfo(
     @Part("kind") kind: RequestBody
 ): ResponseBody
 ```
+### 📕 latitude과 latitude을 구하는 과정을 알아보겠습니다. 
+    + 위도와 경도 값으로 추후 KaKao Map API를 사용해 매장 위치를 제공하는데 사용됩니다.
+```
+submitButton.setOnClickListener {
+
+  val addr = addrEdit.text.toString()
+
+  lifecycleScope.launch {
+      val location = withContext(Dispatchers.IO) {
+          TranslateGeo(addr)
+      }
+      val lat = location.latitude
+      val lng = location.longitude
+}
+
+//주소로 위도,경도 구하는 GeoCoding
+fun TranslateGeo(address: String): Location = try {
+    val locations = Geocoder(requireContext(), Locale.KOREA).getFromLocationName(address, 1)
+    if (!locations.isNullOrEmpty()) {
+        Location("").apply {
+            latitude = locations[0].latitude
+            longitude = locations[0].longitude
+        }
+    } else {
+        throw Exception("주소를 변환할 수 없습니다.")
+    }
+} catch (e: Exception) {
+    e.printStackTrace()
+    // 예외 발생 시 빈 Location 객체를 반환
+    Location("").apply {
+        latitude = 0.0
+        longitude = 0.0
+    }
+}
+```   
+
+#### 📕 Activity에서 Background 작업을 위해 Coroutine을 사용했습니다.
+ + Activity에서 버튼을 클릭하면 사용자가 입력한 주소값을 기준으로 위도와 경도를 계산합니다.
+ + lifecycleScope : 현재 Activity의 생명주기를 따르는 Coroutine을 생성합니다.
+ + withContext(Dispatchers.IO) : Background 작업을 위한 Dispatchers를 사용 했습니다.
+
 #### ✔ [DELETE]
 매장 정보를 삭제하기 위한 요청입니다. 
 ```
