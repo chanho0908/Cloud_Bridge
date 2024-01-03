@@ -244,6 +244,7 @@ suspend fun registStore(
 ): ResponseBody
 ```
 ### 📕 latitude과 latitude을 구하는 과정을 알아보겠습니다. 
+    + Daum 우편번호 서비스 API에 대한 포스팅 입니다 [https://chanho-study.tistory.com/68] 
     + 위도와 경도 값으로 추후 KaKao Map API를 사용해 매장 위치를 제공하는데 사용됩니다.
 ```
 submitButton.setOnClickListener {
