@@ -185,7 +185,7 @@ class MyPageViewModel: ViewModel() {
 #### 📕 첫번째로 중요한 부분은 Live 데이터 부분입니다. 
  * _myStore는 MutableLiveData Type으로 변경이 가능하지만 외부에서 관측이 불가능합니다.
  * myStore는 LiveData Type으로 변경이 불가능 하지만 observer를 사용해 관측이 가능하고 getter()를 통해 _myStore의 값을 읽어오고 있습니다.
-🔥 이러한 패턴은 **MVVM 아키텍쳐**에서 자주 사용하는 패턴입니다. 이런 방식을 사용면 외부에서 값을 변경할 수 없게 만들어 무결성을 유지할 수 있습니다.
+🔥 이러한 패턴은 **MVVM 아키텍쳐**에서 자주 사용하는 패턴입니다. 🔥 이런 방식을 사용면 외부에서 값을 변경할 수 없게 만들어 무결성을 유지할 수 있습니다.
 
 #### 📕 두번째로 중요한 부분은 Coroutine 사용입니다 .
  * viewModelScope는 ViewModel LifeCycle을 따르는 코루틴입니다.
